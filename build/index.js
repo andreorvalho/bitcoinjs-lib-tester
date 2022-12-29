@@ -1,27 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-//import bitcoin from 'bitcoinjs-lib';
-const bitcoin = require('bitcoinjs-lib');
-const ecc = require('tiny-secp256k1');
-const { BIP32Factory } = require('bip32');
 const bip39 = require('bip39');
-const bip32 = BIP32Factory(ecc);
-const mnemonic = 'praise you muffin lion enable neck grocery crumble super myself license ghost';
-const seed = bip39.mnemonicToSeedSync(mnemonic);
-const node = bip32.fromSeed(seed);
-const strng = node.toBase58();
-const restored = bip32.fromBase58(strng);
-function getAddress(node, network) {
-    return bitcoin.payments.p2pkh({ pubkey: node.publicKey, network }).address;
-}
-console.log(getAddress(node));
-console.log(getAddress(restored));
-//import bitcoin from 'bitcoinjs-lib';
-// import ECPairFactory from 'ecpair';
-// const ecc = require('tiny-secp256k1')
-// const ECPair = ECPairFactory(ecc);
-// const keyPair = ECPair.makeRandom();
-// const publicKey = keyPair.publicKey.toString('hex');
-// const privateKey = keyPair.toWIF();
-// console.log({ privateKey, publicKey });
-//var message = 'Hey this is Ranchi Mall'
+const hdkey = require('hdkey');
+const mnemonic = bip39.generateMnemonic(); //generates a 12 word mnemonic
+const seed = bip39.mnemonicToSeed(mnemonic); //creates seed buffer
+const root = hdkey.fromMasterSeed(seed); //should not be passing a promise into here
+const masterPrivateKey = root.privateKey.toString('hex');
+const addrnode = root.derive("m/44'/60'/0'/0/0");
+console.log(addrnode);
+console.log(masterPrivateKey);
+var message = 'Hey this is Ranchi Mall';
