@@ -8,7 +8,6 @@
 --module commonjs --allowJs true --noImplicitAny true
 5. npx tsc
 
-
 npm install bip32 --save-dev
 npm install bip39 --save-dev
 npm install bitcoinjs-lib --save-dev
