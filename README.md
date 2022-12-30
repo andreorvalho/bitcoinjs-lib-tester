@@ -21,3 +21,7 @@ create_keys.ts
 ## Create random keys with ec pair
 
 create_random_keys.ts
+
+## Sign message with keys and verify it
+
+sign_messages.ts
