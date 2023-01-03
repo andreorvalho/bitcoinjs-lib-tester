@@ -25,3 +25,7 @@ create_random_keys.ts
 ## Sign message with keys and verify it
 
 sign_messages.ts
+
+## Encrypt and decrypt with eliptic curve
+
+encrypt_decrypt_with_eliptic_curve.ts
