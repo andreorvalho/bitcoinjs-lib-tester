@@ -1,4 +1,3 @@
-
 const bitcoin = require('bitcoinjs-lib');
 const bitcoinMessage = require('bitcoinjs-message')
 const ecc = require('tiny-secp256k1')

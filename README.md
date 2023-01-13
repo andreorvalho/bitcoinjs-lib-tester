@@ -1,4 +1,5 @@
 ## install
+node version v18.12.1
 
 1. npm init -y
 2. npm install typescript --save-dev
@@ -38,3 +39,5 @@ encrypt_decrypt_with_eliptic_curve.ts
 2. Using a centralized database of (address, publickeys) can be exploited, by gaining access and changing the address and public key. This creates a single point of failure. We would be better off by making requests directly device to device
 
 3. As per written here: https://bitcoin.stackexchange.com/a/80640/139060
+
+npx tsc && node build/index.js

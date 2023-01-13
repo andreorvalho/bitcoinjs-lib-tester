@@ -10,17 +10,17 @@ const ecpair_1 = __importDefault(require("ecpair"));
 const ECPair = (0, ecpair_1.default)(ecc);
 const keyPair = ECPair.makeRandom();
 function getUnsignedMessage() {
-    const message = `{ scope: "", time_stampe: "" }`;
+    const message = `{ scope: "", time_stamp: "" }`;
     return message;
-}
-function getAddress(publicKey, network) {
-    return bitcoin.payments.p2pkh({ pubkey: publicKey, network }).address;
 }
 function createSignedMessage() {
     return bitcoinMessage.sign(getUnsignedMessage(), keyPair.privateKey, keyPair.compressed);
 }
+function getAddress(publicKey, network) {
+    return bitcoin.payments.p2pkh({ pubkey: publicKey, network }).address;
+}
 function requestData(signedMessage, entityAddress, unsignedMessage) {
-    // verify entity address ?? maybe using eliptic curve 
+    // verify entity address ?? maybe using eliptic curve
     const response = bitcoinMessage.verify(unsignedMessage, entityAddress, signedMessage);
     console.log('Message verified: ' + response);
     //send push request
