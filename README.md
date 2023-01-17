@@ -14,6 +14,7 @@ npm install bip39 --save-dev
 npm install bitcoinjs-lib --save-dev
 npm install ecpair --save-dev
 npm install tiny-secp256k1 --save-dev
+npm install ethers --save-dev
 
 ## Create keys from mnemonic and password and shows public and private keys
 
@@ -31,13 +32,10 @@ sign_messages.ts
 
 encrypt_decrypt_with_eliptic_curve.ts
 
+## Using ethereum for verifications
 
-## Key take aways
+ethereum.ts
 
-1. Blockchains cryptographic advantage against middle man attacks comes from the power of the network
-
-2. Using a centralized database of (address, publickeys) can be exploited, by gaining access and changing the address and public key. This creates a single point of failure. We would be better off by making requests directly device to device
-
-3. As per written here: https://bitcoin.stackexchange.com/a/80640/139060
+## HOW TO USE:
 
 npx tsc && node build/index.js
